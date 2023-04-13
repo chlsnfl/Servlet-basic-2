@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src ="//code.jquery.com/jquery.min.js"></script>
+<script>
+	$(function(){
+		$("#submit").click(function(){
+		const uname = $('#uname').val();
+		const age = $('#age').val();
+		const chari = $('#chari').val();
+		$.ajax({
+			url : "Ajax", 
+			type : "post",
+			dataType : "json",
+			data : {uname : uname, age : age, chari : chari},
+			success : function(data){
+					alert("등록했습니다.");
+				},
+			error : function(){
+				alert("에러가 발생하였습니다.");
+			}
+		  });
+		});
+});
+
+</script>
+</head>
+<body>
+	<ul>
+	  <li>
+		<label>이름</label>
+		<input type = "text" name = "uname" id = "uname"/>
+	  </li>
+	  <li>
+		<label>나이</label>
+		<input type = "text" name = "age" id = "age"/>
+	  </li>	  
+	  <li>
+		<label>성격</label>
+		<input type = "text" name = "chari" id = "chari"/>
+	  </li>	  
+	  <li style = "text-align : center">
+	  	<button type ="reset">취소</button>
+	  	<button type ="button" id = "submit">전송</button>
+	  	</li>
+	</ul>
+</body>
+</html>
